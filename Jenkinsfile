@@ -3,13 +3,13 @@ pipeline {
 	stages {
 		stage('OWASP DependencyCheck') {
 			steps {
-				dependencyCheck additionalArguments: '', odcInstallation: 'OWASP-check-730'
+				dependencyCheck additionalArguments: '--format HTML --format XML', , odcInstallation: 'OWASP-check-730'
 			}
 		}
 	}	
 	post {
 		success {
-			dependencyCheckPublisher pattern: 'dependency-check-report2.xml'
+			dependencyCheck additionalArguments: 'dependency-check-report2.xml', odcInstallation: 'OWASP-check-730'
 		}
 	}
 }
