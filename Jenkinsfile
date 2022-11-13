@@ -9,7 +9,7 @@ pipeline {
 	}	
 	post {
 		success {
-			dependencyCheck additionalArguments: 'dependency-check-report.xml', odcInstallation: 'OWASP-check-730'
+			dependencyCheckPublisher pattern: 'dependency-check-report.xml'
 		}
 	}
 }
